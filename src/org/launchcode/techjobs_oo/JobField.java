@@ -22,6 +22,7 @@ public abstract class JobField {
         return value;
     }
 
+    //Custom toString, equals, and hashCode methods:
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
