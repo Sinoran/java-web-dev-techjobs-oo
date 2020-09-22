@@ -85,6 +85,54 @@ public class Job {
         return Objects.hash(id);
     }
 
+
+
+    public String toString() {
+        String dataNotAvailable = "Data not available.";
+        int jobId = this.id;
+        String jobName;
+        String jobEmployer;
+        String jobLocation;
+        String jobPosition;
+        String jobCoreCompetency;
+
+        jobName = Objects.requireNonNullElse(this.name, dataNotAvailable);
+
+        if(this.employer != null) {
+             jobEmployer = this.employer.getValue();
+        } else {
+            jobEmployer = dataNotAvailable;
+        }
+
+        if(this.location != null) {
+            jobLocation = this.location.getValue();
+        } else {
+            jobLocation = dataNotAvailable;
+        }
+
+        if(this.positionType != null) {
+            jobPosition = this.positionType.getValue();
+        } else {
+            jobPosition = dataNotAvailable;
+        }
+
+        if(this.coreCompetency != null) {
+            jobCoreCompetency = this.coreCompetency.getValue();
+        } else {
+            jobCoreCompetency = dataNotAvailable;
+        }
+
+
+        return "\n" + "ID: " + jobId + "\n" +
+                "Name: " + jobName + "\n" +
+                "Employer: " + jobEmployer + "\n" +
+                "Location: " + jobLocation + "\n" +
+                "Position Type: " + jobPosition + "\n" +
+                "Core Competency: " + jobCoreCompetency + "\n";
+
+    }
+
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
