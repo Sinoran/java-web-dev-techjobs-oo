@@ -98,30 +98,29 @@ public class Job {
 
         jobName = Objects.requireNonNullElse(this.name, dataNotAvailable);
 
-        if(this.employer != null) {
-             jobEmployer = this.employer.getValue();
+        if(this.employer == null || this.employer.toString() == "") {
+             jobEmployer = dataNotAvailable;
         } else {
-            jobEmployer = dataNotAvailable;
+            jobEmployer = this.employer.getValue();
         }
 
-        if(this.location != null) {
-            jobLocation = this.location.getValue();
-        } else {
+        if(this.location == null || this.location.toString() == "") {
             jobLocation = dataNotAvailable;
+        } else {
+            jobLocation = this.location.getValue();
         }
 
-        if(this.positionType != null) {
-            jobPosition = this.positionType.getValue();
-        } else {
+        if(this.positionType == null || this.positionType.toString() == "") {
             jobPosition = dataNotAvailable;
-        }
-
-        if(this.coreCompetency != null) {
-            jobCoreCompetency = this.coreCompetency.getValue();
         } else {
-            jobCoreCompetency = dataNotAvailable;
+            jobPosition = this.positionType.getValue();
         }
 
+        if(this.coreCompetency == null || this.coreCompetency.toString() == "") {
+            jobCoreCompetency = dataNotAvailable;
+        } else {
+            jobCoreCompetency = this.coreCompetency.getValue();
+        }
 
         return "\n" + "ID: " + jobId + "\n" +
                 "Name: " + jobName + "\n" +
